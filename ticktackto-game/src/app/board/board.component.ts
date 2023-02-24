@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  squares: any[];
-  xIsNext: boolean;
-  winner: string;
+  squares: any[] | any;
+  xIsNext: boolean | any;
+  winner: string | any;
 
   constructor() {}
 
@@ -47,13 +47,13 @@ export class BoardComponent implements OnInit {
       [2, 4, 6],
     ];
     for (let i = 0; i < lines.length; i++) {
-      const [a, b, c];
+      let letters: string[] = ['a', 'b', 'c'];
       if (
-        this.squares[a] &&
-        this.squares[a] === this.squares[b] &&
-        this.squares[a] === this.squares[c]
+        this.squares[letters[0]] &&
+        this.squares[letters[0]] === this.squares[letters[1]] &&
+        this.squares[letters[0]] === this.squares[letters[2]]
       ) {
-        return this.squares[a];
+        return this.squares[letters[0]];
       }
     }
     return null;
